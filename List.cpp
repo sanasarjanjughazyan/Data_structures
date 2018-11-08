@@ -25,7 +25,7 @@ public:
 		T& operator* () const { assert(ptr != nullptr); return ptr->data; }
 		T& operator-> () const { assert(ptr != nullptr); return ptr->data; }
 		iterator& operator++ () { assert(ptr != nullptr); ptr = ptr->next; return *this; }
-		iterator& operator++ (int) { assert(ptr != nullptr); iterator temp = *this; ptr = ptr->next; return temp; }
+		iterator operator++ (int) { assert(ptr != nullptr); iterator temp = *this; ptr = ptr->next; return temp; }
 		bool operator!= (const iterator& it) const { return ptr != it.ptr; }
 		bool operator== (const iterator& it) const { return ptr == it.ptr; }
 		void swap(iterator& it) { std::swap(ptr, it->ptr); }
